@@ -6,61 +6,78 @@
 <meta name="theme-color" content="#12263A">
 <title>Prediksi Cuaca</title>
 <style>
-:root{--ink:#12263A;--card:rgba(255,255,255,.14);--text:#fff;--muted:rgba(255,255,255,.72);--bg1:#2F6DB5;--bg2:#8FC1E3;--sun:#FFC857}
+:root{--ink:#10233A;--glass:rgba(255,255,255,.16);--line:rgba(255,255,255,.18);--text:#fff;--muted:rgba(255,255,255,.74);--bg1:#2F6DB5;--bg2:#8FC1E3;--sun:#FFD166;--r:20px}
 *{box-sizing:border-box;margin:0}
 html,body{min-height:100%}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:linear-gradient(170deg,var(--bg1),var(--bg2));background-attachment:fixed;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 24px);transition:background .6s}
-body.cerah{--bg1:#1F5FAE;--bg2:#F2B84B}
-body.berawan{--bg1:#4A6580;--bg2:#A9BCCB}
-body.hujan{--bg1:#1B2D3F;--bg2:#5B7083}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:linear-gradient(175deg,var(--bg1),var(--bg2));background-attachment:fixed;padding:calc(env(safe-area-inset-top,0px) + 14px) 16px calc(env(safe-area-inset-bottom,0px) + 28px);transition:background .6s;-webkit-font-smoothing:antialiased}
+body.cerah{--bg1:#1F5FAE;--bg2:#F0B24A}
+body.berawan{--bg1:#486582;--bg2:#A9BCCB}
+body.hujan{--bg1:#16283A;--bg2:#5B7083}
 body.badai{--bg1:#16121F;--bg2:#4B4466}
 body.malam{--bg1:#0B1426;--bg2:#2A3F66}
-main{max-width:520px;margin:0 auto}
-form{display:flex;gap:8px}
-input{flex:1;min-width:0;padding:12px 14px;border:0;border-radius:12px;background:var(--card);color:var(--text);font-size:1rem}
-input::placeholder{color:var(--muted)}
-button{border:0;border-radius:12px;padding:12px 14px;font-size:1rem;background:#fff;color:var(--ink);font-weight:600;cursor:pointer}
-button.ghost{background:var(--card);color:var(--text)}
+main{max-width:480px;margin:0 auto;position:relative}
+.bar-cari{display:flex;gap:8px;align-items:center;background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:5px 5px 5px 16px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.bar-cari input{flex:1;min-width:0;border:0;background:none;color:var(--text);font-size:1rem;padding:9px 0}
+.bar-cari input::placeholder{color:var(--muted)}
+.bar-cari input:focus-visible{outline:0}
+.bar-cari:focus-within{border-color:#fff}
+button{border:0;border-radius:999px;height:40px;padding:0 16px;font-size:.95rem;background:#fff;color:var(--ink);font-weight:600;cursor:pointer}
+button.ghost{width:40px;padding:0;background:rgba(255,255,255,.22);color:#fff;font-size:1.1rem}
 :focus-visible{outline:3px solid var(--sun);outline-offset:2px}
-.hasil{list-style:none;padding:0;margin-top:8px;background:var(--ink);border-radius:12px;overflow:hidden}
-.hasil button{width:100%;text-align:left;background:none;color:#fff;border-radius:0;font-weight:400;border-bottom:1px solid rgba(255,255,255,.1)}
-.hero{padding:36px 4px 20px}
-.kota{font-size:1.15rem;color:var(--muted)}
-.suhu{font-size:6.5rem;font-weight:200;line-height:1;letter-spacing:-.04em;margin:6px 0}
-.suhu sup{font-size:2.4rem;font-weight:300;vertical-align:top;position:relative;top:.5rem}
-.kondisi{font-size:1.4rem;font-weight:500}
-.detail{color:var(--muted);margin-top:4px}
-section{background:var(--card);border-radius:18px;padding:14px;margin-top:14px;backdrop-filter:blur(8px)}
-h2{font-size:.95rem;font-weight:600;color:var(--muted);margin-bottom:10px}
-.jam{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
-.j{flex:0 0 62px;text-align:center;font-size:.9rem}
-.j .i{font-size:1.5rem;margin:4px 0}
-.j .h{color:var(--sun);font-size:.78rem;min-height:1em}
-.hari{display:grid;grid-template-columns:78px 34px 1fr auto;gap:8px;align-items:center;padding:8px 0;border-top:1px solid rgba(255,255,255,.12)}
-.hari:first-of-type{border-top:0}
-.bar{height:6px;border-radius:3px;background:rgba(255,255,255,.2);position:relative}
+.hasil{list-style:none;padding:6px;margin-top:8px;background:var(--ink);border-radius:var(--r);box-shadow:0 12px 32px rgba(0,0,0,.35);position:absolute;left:0;right:0;z-index:5}
+.hasil button{width:100%;height:auto;text-align:left;background:none;color:#fff;border-radius:12px;font-weight:400;padding:12px}
+.hasil button:hover{background:rgba(255,255,255,.1)}
+.hasil .status{padding:12px}
+.hero{text-align:center;padding:34px 0 10px}
+.kota{font-size:1.1rem;font-weight:600;letter-spacing:.01em}
+.tgl{color:var(--muted);font-size:.9rem;margin-top:2px}
+.ikon{font-size:4.2rem;line-height:1;margin:18px 0 4px;filter:drop-shadow(0 8px 16px rgba(0,0,0,.2))}
+.suhu{font-size:5.8rem;font-weight:200;line-height:1;letter-spacing:-.05em;padding-left:.35em}
+.suhu sup{font-size:2rem;font-weight:300;vertical-align:top;position:relative;top:.7rem;letter-spacing:0}
+.kondisi{font-size:1.25rem;font-weight:500;margin-top:6px}
+.pil{display:inline-flex;gap:14px;margin-top:14px;background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-size:.92rem}
+section{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-top:14px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+h2{font-size:.9rem;font-weight:600;color:var(--muted);margin-bottom:12px}
+.jam{display:flex;gap:4px;overflow-x:auto;margin:0 -6px;padding:0 6px 6px;scrollbar-width:none}
+.jam::-webkit-scrollbar{display:none}
+.j{flex:0 0 58px;text-align:center;font-size:.88rem;padding:10px 0;border-radius:16px}
+.j.kini{background:rgba(255,255,255,.22)}
+.j .t{color:var(--muted);font-size:.8rem}
+.j .i{font-size:1.5rem;margin:8px 0 6px}
+.j b{font-weight:600}
+.j .h{color:#BFE3FF;font-size:.75rem;height:1em;margin-top:4px}
+.hari{display:grid;grid-template-columns:62px 28px 36px 28px 1fr 28px;gap:8px;align-items:center;padding:11px 0;border-top:1px solid var(--line);font-size:.95rem}
+.hari:first-of-type{border-top:0;padding-top:2px}
+.hari .p{color:#BFE3FF;font-size:.8rem}
+.hari .lo{color:var(--muted);text-align:right}
+.hari .hi{text-align:right;font-weight:600}
+.bar{height:5px;border-radius:3px;background:rgba(255,255,255,.22);position:relative}
 .bar i{position:absolute;top:0;bottom:0;border-radius:3px;background:linear-gradient(90deg,#9CD3FF,var(--sun))}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.grid b{display:block;font-size:1.25rem;font-weight:500}
-.grid span{color:var(--muted);font-size:.85rem}
-.status{padding:30px 4px;color:var(--muted)}
-.rain{position:fixed;inset:0;pointer-events:none;overflow:hidden;opacity:0}
-body.hujan .rain,body.badai .rain{opacity:.5}
+.grid>div{background:rgba(255,255,255,.1);border-radius:16px;padding:12px 14px}
+.grid em{font-style:normal;font-size:1.2rem}
+.grid b{display:block;font-size:1.3rem;font-weight:500;margin-top:6px}
+.grid span{color:var(--muted);font-size:.82rem}
+.status{padding:28px 4px;color:var(--muted);text-align:center}
+.sk{height:14px;border-radius:7px;background:rgba(255,255,255,.2);margin:14px auto;animation:b 1.2s ease-in-out infinite}
+@keyframes b{50%{opacity:.4}}
+.rain{position:fixed;inset:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity .6s}
+body.hujan .rain,body.badai .rain{opacity:.45}
 .rain i{position:absolute;top:-20px;width:1.5px;height:18px;background:#cfe6ff;animation:t linear infinite}
 @keyframes t{to{transform:translateY(110vh)}}
-@media (prefers-reduced-motion:reduce){.rain{display:none}body{transition:none}}
+@media (prefers-reduced-motion:reduce){.rain{display:none}body{transition:none}.sk{animation:none}}
 </style>
 </head>
 <body class="cerah">
 <div class="rain" id="rain" aria-hidden="true"></div>
 <main>
-  <form id="cari" autocomplete="off">
+  <form id="cari" class="bar-cari" autocomplete="off">
     <input id="q" type="search" placeholder="Cari kota, mis. Bandung" aria-label="Cari kota">
     <button>Cari</button>
     <button type="button" class="ghost" id="gps" aria-label="Pakai lokasi saya">📍</button>
   </form>
   <ul class="hasil" id="hasil" hidden></ul>
-  <div id="isi"><p class="status">Memuat cuaca…</p></div>
+  <div id="isi"><div class="sk" style="width:40%"></div><div class="sk" style="width:70%;height:90px"></div><div class="sk" style="width:90%;height:120px"></div></div>
 </main>
 <script>
 const $=s=>document.querySelector(s);
@@ -77,7 +94,7 @@ hujanFx();
 async function muat(l){
   lokasi=l;
   try{localStorage.setItem("lokasi",JSON.stringify(l))}catch(e){}
-  $("#isi").innerHTML='<p class="status">Memuat cuaca…</p>';
+  $("#isi").innerHTML='<div class="sk" style="width:40%"></div><div class="sk" style="width:70%;height:90px"></div><div class="sk" style="width:90%;height:120px"></div>';
   const u="https://api.open-meteo.com/v1/forecast?latitude="+l.lat+"&longitude="+l.lon
    +"&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,weather_code,wind_speed_10m,is_day"
    +"&hourly=temperature_2m,precipitation_probability,weather_code"
@@ -94,27 +111,28 @@ async function muat(l){
 function tampil(l,d){
   const c=d.current,k=w(c.weather_code);
   document.body.className=c.is_day?k[2]:(k[2]==="hujan"||k[2]==="badai"?k[2]:"malam");
-  // 24 jam ke depan mulai dari jam sekarang
   const now=c.time.slice(0,13);
   let s=d.hourly.time.findIndex(t=>t.slice(0,13)>=now);if(s<0)s=0;
   let jam="";
   for(let i=s;i<s+24&&i<d.hourly.time.length;i++){
     const p=d.hourly.precipitation_probability[i];
-    jam+='<div class="j"><div>'+(i===s?"Kini":d.hourly.time[i].slice(11,13)+":00".slice(0,0)+".00")+'</div><div class="i">'+w(d.hourly.weather_code[i])[1]+'</div><div>'+r(d.hourly.temperature_2m[i])+'°</div><div class="h">'+(p>=20?p+"%":"")+'</div></div>';
+    jam+='<div class="j'+(i===s?' kini':'')+'"><div class="t">'+(i===s?"Kini":d.hourly.time[i].slice(11,13)+".00")+'</div><div class="i">'+w(d.hourly.weather_code[i])[1]+'</div><b>'+r(d.hourly.temperature_2m[i])+'°</b><div class="h">'+(p>=20?"💧"+p+"%":"")+'</div></div>';
   }
   const mn=Math.min(...d.daily.temperature_2m_min),mx=Math.max(...d.daily.temperature_2m_max);
   let hari="";
   d.daily.time.forEach((t,i)=>{
     const lo=d.daily.temperature_2m_min[i],hi=d.daily.temperature_2m_max[i];
     const kiri=(lo-mn)/(mx-mn||1)*100,lebar=Math.max((hi-lo)/(mx-mn||1)*100,8);
-    hari+='<div class="hari"><span>'+(i===0?"Hari ini":HARI[new Date(t+"T12:00").getDay()])+'</span><span aria-hidden="true">'+w(d.daily.weather_code[i])[1]+'</span><div class="bar"><i style="left:'+kiri+'%;width:'+lebar+'%"></i></div><span>'+r(lo)+'° / '+r(hi)+'° · '+d.daily.precipitation_probability_max[i]+'%</span></div>';
+    const p=d.daily.precipitation_probability_max[i];
+    hari+='<div class="hari"><span>'+(i===0?"Hari ini":HARI[new Date(t+"T12:00").getDay()])+'</span><span aria-hidden="true">'+w(d.daily.weather_code[i])[1]+'</span><span class="p">'+(p>=20?p+"%":"")+'</span><span class="lo">'+r(lo)+'°</span><div class="bar"><i style="left:'+kiri+'%;width:'+lebar+'%"></i></div><span class="hi">'+r(hi)+'°</span></div>';
   });
-  const uv=d.daily.uv_index_max[0];
+  const tgl=new Date(c.time).toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long"});
+  const uv=r(d.daily.uv_index_max[0]);
   $("#isi").innerHTML=
-   '<div class="hero"><div class="kota">'+esc(l.nama)+'</div><div class="suhu">'+r(c.temperature_2m)+'<sup>°C</sup></div><div class="kondisi">'+k[1]+' '+k[0]+'</div><div class="detail">Terasa '+r(c.apparent_temperature)+'° · Tertinggi '+r(d.daily.temperature_2m_max[0])+'° · Terendah '+r(d.daily.temperature_2m_min[0])+'°</div></div>'
-  +'<section><h2>24 jam ke depan</h2><div class="jam">'+jam+'</div></section>'
-  +'<section><h2>Prakiraan 7 hari (suhu · peluang hujan)</h2>'+hari+'</section>'
-  +'<section><h2>Kondisi saat ini</h2><div class="grid"><div><b>'+c.relative_humidity_2m+'%</b><span>Kelembapan</span></div><div><b>'+r(c.wind_speed_10m)+' km/j</b><span>Angin</span></div><div><b>'+c.precipitation+' mm</b><span>Curah hujan</span></div><div><b>'+r(uv)+'</b><span>Indeks UV maks hari ini</span></div></div></section>';
+   '<div class="hero"><div class="kota">'+esc(l.nama)+'</div><div class="tgl">'+tgl+'</div><div class="ikon" aria-hidden="true">'+k[1]+'</div><div class="suhu">'+r(c.temperature_2m)+'<sup>°C</sup></div><div class="kondisi">'+k[0]+'</div><div class="pil"><span>Terasa '+r(c.apparent_temperature)+'°</span><span>▲ '+r(d.daily.temperature_2m_max[0])+'°</span><span>▼ '+r(d.daily.temperature_2m_min[0])+'°</span></div></div>'
+  +'<section><h2>Per jam, 24 jam ke depan</h2><div class="jam">'+jam+'</div></section>'
+  +'<section><h2>7 hari ke depan</h2>'+hari+'</section>'
+  +'<section><h2>Kondisi saat ini</h2><div class="grid"><div><em>💧</em><b>'+c.relative_humidity_2m+'%</b><span>Kelembapan</span></div><div><em>💨</em><b>'+r(c.wind_speed_10m)+' km/j</b><span>Angin</span></div><div><em>🌧️</em><b>'+c.precipitation+' mm</b><span>Curah hujan</span></div><div><em>🕶️</em><b>'+uv+'</b><span>Indeks UV maks hari ini</span></div></div></section>';
 }
 function esc(s){return s.replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]))}
 
