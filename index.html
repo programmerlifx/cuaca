@@ -3,81 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#12263A">
-<title>Prediksi Cuaca</title>
+<meta name="theme-color" content="#2E78C9">
+<title>Cuaca</title>
 <style>
-:root{--ink:#10233A;--glass:rgba(255,255,255,.16);--line:rgba(255,255,255,.18);--text:#fff;--muted:rgba(255,255,255,.74);--bg1:#2F6DB5;--bg2:#8FC1E3;--sun:#FFD166;--r:20px}
+:root{--glass:rgba(255,255,255,.17);--line:rgba(255,255,255,.16);--muted:rgba(255,255,255,.72);--sun:#FFD25E;--r:22px;--bg1:#2E78C9;--bg2:#6DB4F0}
 *{box-sizing:border-box;margin:0}
 html,body{min-height:100%}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:linear-gradient(175deg,var(--bg1),var(--bg2));background-attachment:fixed;padding:calc(env(safe-area-inset-top,0px) + 14px) 16px calc(env(safe-area-inset-bottom,0px) + 28px);transition:background .6s;-webkit-font-smoothing:antialiased}
-body.cerah{--bg1:#1F5FAE;--bg2:#F0B24A}
-body.berawan{--bg1:#486582;--bg2:#A9BCCB}
-body.hujan{--bg1:#16283A;--bg2:#5B7083}
-body.badai{--bg1:#16121F;--bg2:#4B4466}
-body.malam{--bg1:#0B1426;--bg2:#2A3F66}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;color:#fff;background:linear-gradient(180deg,var(--bg1),var(--bg2));background-attachment:fixed;padding:calc(env(safe-area-inset-top,0px) + 12px) 14px calc(env(safe-area-inset-bottom,0px) + 28px);transition:background .6s;-webkit-font-smoothing:antialiased}
+body.cerah{--bg1:#2A73C5;--bg2:#6FB5F2}
+body.berawan{--bg1:#587592;--bg2:#98AEC2}
+body.hujan{--bg1:#323F50;--bg2:#6A7D92}
+body.badai{--bg1:#25243A;--bg2:#56567A}
+body.malam{--bg1:#0C1736;--bg2:#2B4272}
 main{max-width:480px;margin:0 auto;position:relative}
-.bar-cari{display:flex;gap:8px;align-items:center;background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:5px 5px 5px 16px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.bar-cari input{flex:1;min-width:0;border:0;background:none;color:var(--text);font-size:1rem;padding:9px 0}
+.bar-cari{display:flex;gap:8px;align-items:center;background:var(--glass);border-radius:14px;padding:4px 4px 4px 14px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.bar-cari input{flex:1;min-width:0;border:0;background:none;color:#fff;font-size:1rem;padding:9px 0}
 .bar-cari input::placeholder{color:var(--muted)}
 .bar-cari input:focus-visible{outline:0}
-.bar-cari:focus-within{border-color:#fff}
-button{border:0;border-radius:999px;height:40px;padding:0 16px;font-size:.95rem;background:#fff;color:var(--ink);font-weight:600;cursor:pointer}
-button.ghost{width:40px;padding:0;background:rgba(255,255,255,.22);color:#fff;font-size:1.1rem}
+button{border:0;border-radius:999px;height:38px;padding:0 16px;font-size:.95rem;background:#fff;color:#10233A;font-weight:600;cursor:pointer}
+button.ghost{display:grid;place-items:center;width:38px;padding:0;background:rgba(255,255,255,.2);color:#fff}
 :focus-visible{outline:3px solid var(--sun);outline-offset:2px}
-.hasil{list-style:none;padding:6px;margin-top:8px;background:var(--ink);border-radius:var(--r);box-shadow:0 12px 32px rgba(0,0,0,.35);position:absolute;left:0;right:0;z-index:5}
+.hasil{list-style:none;padding:6px;margin-top:8px;background:#10233A;border-radius:var(--r);box-shadow:0 12px 32px rgba(0,0,0,.35);position:absolute;left:0;right:0;z-index:5}
 .hasil button{width:100%;height:auto;text-align:left;background:none;color:#fff;border-radius:12px;font-weight:400;padding:12px}
 .hasil button:hover{background:rgba(255,255,255,.1)}
 .hasil .status{padding:12px}
-.hero{text-align:center;padding:34px 0 10px}
-.kota{font-size:1.1rem;font-weight:600;letter-spacing:.01em}
-.tgl{color:var(--muted);font-size:.9rem;margin-top:2px}
-.ikon{font-size:4.2rem;line-height:1;margin:18px 0 4px;filter:drop-shadow(0 8px 16px rgba(0,0,0,.2))}
-.suhu{font-size:5.8rem;font-weight:200;line-height:1;letter-spacing:-.05em;padding-left:.35em}
-.suhu sup{font-size:2rem;font-weight:300;vertical-align:top;position:relative;top:.7rem;letter-spacing:0}
-.kondisi{font-size:1.25rem;font-weight:500;margin-top:6px}
-.pil{display:inline-flex;gap:14px;margin-top:14px;background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-size:.92rem}
-section{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-top:14px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-h2{font-size:.9rem;font-weight:600;color:var(--muted);margin-bottom:12px}
-.jam{display:flex;gap:4px;overflow-x:auto;margin:0 -6px;padding:0 6px 6px;scrollbar-width:none}
+.mini{position:fixed;top:0;left:0;right:0;z-index:4;text-align:center;font-weight:500;padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 10px;background:rgba(20,40,70,.35);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);opacity:0;pointer-events:none;transition:opacity .2s}
+.mini.on{opacity:1}
+.hero{text-align:center;padding:34px 0 6px}
+.kota{font-size:2rem;font-weight:400}
+.suhu{position:relative;display:inline-block;font-size:6.2rem;font-weight:200;line-height:1.05}
+.suhu i{position:absolute;left:100%;font-style:normal}
+.kondisi{font-size:1.2rem;font-weight:500}
+.tr{font-size:1.1rem;font-weight:500;margin-top:2px}
+.card{background:var(--glass);border-radius:var(--r);padding:12px 16px 14px;margin-top:12px;backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3)}
+.ch,.th{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.ch{padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.ringkas{font-size:.95rem;line-height:1.35;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.jam{display:flex;gap:2px;overflow-x:auto;margin:0 -8px;padding:0 8px 4px;scrollbar-width:none}
 .jam::-webkit-scrollbar{display:none}
-.j{flex:0 0 58px;text-align:center;font-size:.88rem;padding:10px 0;border-radius:16px}
-.j.kini{background:rgba(255,255,255,.22)}
-.j .t{color:var(--muted);font-size:.8rem}
-.j .i{font-size:1.5rem;margin:8px 0 6px}
-.j b{font-weight:600}
-.j .h{color:#BFE3FF;font-size:.75rem;height:1em;margin-top:4px}
-.hari{display:grid;grid-template-columns:62px 28px 36px 28px 1fr 28px;gap:8px;align-items:center;padding:11px 0;border-top:1px solid var(--line);font-size:.95rem}
+.j{flex:0 0 56px;text-align:center;font-size:.9rem}
+.j .t{font-weight:600;font-size:.88rem}
+.j .i{display:flex;justify-content:center;margin:10px 0 2px}
+.j .h{height:1.1em;font-size:.74rem;font-weight:600;color:#9AD2FF}
+.j b{display:block;font-size:1.05rem;font-weight:600;margin-top:6px}
+.j .ev{font-size:.78rem}
+.hari{display:grid;grid-template-columns:56px 36px 34px 1fr 34px;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:1.02rem}
 .hari:first-of-type{border-top:0;padding-top:2px}
-.hari .p{color:#BFE3FF;font-size:.8rem}
+.hari .d{font-weight:600}
+.hari .wc{display:flex;flex-direction:column;align-items:center;line-height:1}
+.hari .wc small{font-size:.68rem;font-weight:600;color:#9AD2FF;height:.8rem;margin-top:3px}
 .hari .lo{color:var(--muted);text-align:right}
 .hari .hi{text-align:right;font-weight:600}
-.bar{height:5px;border-radius:3px;background:rgba(255,255,255,.22);position:relative}
-.bar i{position:absolute;top:0;bottom:0;border-radius:3px;background:linear-gradient(90deg,#9CD3FF,var(--sun))}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.grid>div{background:rgba(255,255,255,.1);border-radius:16px;padding:12px 14px}
-.grid em{font-style:normal;font-size:1.2rem}
-.grid b{display:block;font-size:1.3rem;font-weight:500;margin-top:6px}
-.grid span{color:var(--muted);font-size:.82rem}
+.bar{height:4px;border-radius:2px;background:rgba(0,0,0,.22);position:relative}
+.bar i{position:absolute;top:0;bottom:0;border-radius:2px}
+.bar b{position:absolute;top:50%;width:8px;height:8px;border-radius:50%;background:#fff;border:2px solid rgba(0,0,0,.25);transform:translate(-50%,-50%)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.tile{background:var(--glass);border-radius:var(--r);padding:12px 14px;min-height:164px;display:flex;flex-direction:column;backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3)}
+.tile .v{font-size:2.1rem;font-weight:500;margin-top:8px;line-height:1.1}
+.tile .v small{font-size:1rem;font-weight:500;margin-left:3px}
+.tile .k{font-size:1.05rem;font-weight:500;margin-top:2px}
+.tile .note{margin-top:auto;font-size:.86rem;line-height:1.3}
+.ub{height:5px;border-radius:3px;position:relative;margin:10px 0;background:linear-gradient(90deg,#3FBF5E,#F5D547,#F29A3A,#E5483B,#9B4FD0)}
+.ub i{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid rgba(0,0,0,.3);transform:translate(-50%,-50%)}
+.wind{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.foot{color:var(--muted);font-size:.78rem;text-align:center;margin:18px 8px 0;line-height:1.4}
 .status{padding:28px 4px;color:var(--muted);text-align:center}
 .sk{height:14px;border-radius:7px;background:rgba(255,255,255,.2);margin:14px auto;animation:b 1.2s ease-in-out infinite}
 @keyframes b{50%{opacity:.4}}
-.rain{position:fixed;inset:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity .6s}
-body.hujan .rain,body.badai .rain{opacity:.45}
-.rain i{position:absolute;top:-20px;width:1.5px;height:18px;background:#cfe6ff;animation:t linear infinite}
-@keyframes t{to{transform:translateY(110vh)}}
-@media (prefers-reduced-motion:reduce){.rain{display:none}body{transition:none}.sk{animation:none}}
-
-button.ghost{display:grid;place-items:center}
 .ic{display:block;flex:none}
 .ic .s{stroke:var(--sun)}
 .ic-moon{color:#DCE6FF}
-.ic-drop{color:#BFE3FF}
-.ikon{display:flex;justify-content:center;font-size:0;margin:20px 0 6px}
-.pil span{display:inline-flex;align-items:center;gap:3px}
-.j .i{display:flex;justify-content:center;font-size:0;margin:8px 0 6px}
-.j .h{display:flex;justify-content:center;align-items:center;gap:2px}
-.hi-ic{display:flex;justify-content:center}
-.grid em{display:block;font-size:0;opacity:.9}
+.ic-drop{color:#9AD2FF}
+.rain{position:fixed;inset:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity .6s}
+body.hujan .rain,body.badai .rain{opacity:.4}
+.rain i{position:absolute;top:-20px;width:1.5px;height:18px;background:#cfe6ff;animation:t linear infinite}
+@keyframes t{to{transform:translateY(110vh)}}
+@media (prefers-reduced-motion:reduce){.rain{display:none}body,.mini{transition:none}.sk{animation:none}}
 dialog{position:fixed;inset:auto 0 0 0;width:100%;max-width:none;margin:0;padding:0;border:0;background:transparent;color:#fff}
 dialog::backdrop{background:rgba(5,12,24,.55);backdrop-filter:blur(4px)}
 .sh{max-width:480px;margin:0 auto;background:#10233A;border-radius:24px 24px 0 0;padding:18px 18px calc(env(safe-area-inset-bottom,0px) + 22px);max-height:88vh;overflow:auto}
@@ -97,6 +98,7 @@ dialog::backdrop{background:rgba(5,12,24,.55);backdrop-filter:blur(4px)}
 </head>
 <body class="cerah">
 <div class="rain" id="rain" aria-hidden="true"></div>
+<div class="mini" id="mini" aria-hidden="true"></div>
 <main>
   <form id="cari" class="bar-cari" autocomplete="off">
     <input id="q" type="search" placeholder="Cari kota, mis. Bandung" aria-label="Cari kota">
@@ -105,7 +107,7 @@ dialog::backdrop{background:rgba(5,12,24,.55);backdrop-filter:blur(4px)}
     <button type="button" class="ghost" id="dev" aria-label="Menu Dev LIFX" data-ic="code"></button>
   </form>
   <ul class="hasil" id="hasil" hidden></ul>
-  <div id="isi"><div class="sk" style="width:40%"></div><div class="sk" style="width:70%;height:90px"></div><div class="sk" style="width:90%;height:120px"></div></div>
+  <div id="isi"></div>
 </main>
 <dialog id="dlg" aria-label="Dev LIFX"><div class="sh">
   <div class="sh-h"><b>Dev LIFX</b><button class="ghost" id="tutup" aria-label="Tutup" data-ic="x"></button></div>
@@ -118,7 +120,7 @@ dialog::backdrop{background:rgba(5,12,24,.55);backdrop-filter:blur(4px)}
 </div></dialog>
 <script>
 const $=s=>document.querySelector(s);
-const WMO={0:["Cerah","sun","cerah"],1:["Cerah berawan","partly","cerah"],2:["Berawan sebagian","partly","berawan"],3:["Mendung","cloud","berawan"],45:["Berkabut","fog","berawan"],48:["Kabut beku","fog","berawan"],51:["Gerimis ringan","drizzle","hujan"],53:["Gerimis","drizzle","hujan"],55:["Gerimis lebat","drizzle","hujan"],61:["Hujan ringan","rain","hujan"],63:["Hujan sedang","rain","hujan"],65:["Hujan lebat","rain","hujan"],80:["Hujan lokal","rain","hujan"],81:["Hujan lokal deras","rain","hujan"],82:["Hujan sangat deras","thunder","badai"],95:["Badai petir","thunder","badai"],96:["Badai petir + es","thunder","badai"],99:["Badai petir + es","thunder","badai"]};
+const WMO={0:["Cerah","sun","cerah"],1:["Cerah berawan","partly","cerah"],2:["Berawan sebagian","partly","berawan"],3:["Mendung","cloud","berawan"],45:["Berkabut","fog","berawan"],48:["Kabut beku","fog","berawan"],51:["Gerimis ringan","drizzle","hujan"],53:["Gerimis","drizzle","hujan"],55:["Gerimis lebat","drizzle","hujan"],56:["Gerimis beku","drizzle","hujan"],57:["Gerimis beku lebat","drizzle","hujan"],61:["Hujan ringan","rain","hujan"],63:["Hujan sedang","rain","hujan"],65:["Hujan lebat","rain","hujan"],66:["Hujan beku","rain","hujan"],67:["Hujan beku lebat","rain","hujan"],71:["Salju ringan","cloud","berawan"],73:["Salju","cloud","berawan"],75:["Salju lebat","cloud","berawan"],77:["Butiran salju","cloud","berawan"],80:["Hujan lokal","rain","hujan"],81:["Hujan lokal deras","rain","hujan"],82:["Hujan sangat deras","thunder","badai"],85:["Hujan salju","cloud","berawan"],86:["Hujan salju lebat","cloud","berawan"],95:["Badai petir","thunder","badai"],96:["Badai petir + es","thunder","badai"],99:["Badai petir + es","thunder","badai"]};
 const w=c=>WMO[c]||["Tidak diketahui","cloud","berawan"];
 const CL="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242";
 const P={
@@ -132,71 +134,119 @@ thunder:'<path d="M6 16.33A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.97"/><path 
 moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
 drop:'<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
 wind:'<path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2M9.6 4.6A2 2 0 1 1 11 8H2M12.6 19.4A2 2 0 1 0 14 16H2"/>',
+sunrise:'<g class="s"><path d="M12 2v8M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M8 6l4-4 4 4M16 18a4 4 0 0 0-8 0"/></g>',
+sunset:'<g class="s"><path d="M12 10V2M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M16 6l-4 4-4-4M16 18a4 4 0 0 0-8 0"/></g>',
+thermo:'<path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/>',
+eye:'<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+gauge:'<path d="m12 14 4-4M3.34 19a10 10 0 1 1 17.32 0"/>',
+leaf:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10ZM2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/>',
 pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
 search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
 code:'<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>',
 x:'<path d="M18 6 6 18M6 6l12 12"/>',
-up:'<path d="m18 15-6-6-6 6"/>',
-down:'<path d="m6 9 6 6 6-6"/>',
 refresh:'<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16M3 16h5v5"/>',
 trash:'<path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
 ext:'<path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>'};
 function ic(n,z){z=z||24;return '<svg class="ic ic-'+n+'" viewBox="0 0 24 24" width="'+z+'" height="'+z+'" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+P[n]+'</svg>'}
 function wi(code,malam,z){let n=w(code)[1];if(malam&&(n==="sun"||code===1))n="moon";return ic(n,z)}
-let last=null;
 const HARI=["Min","Sen","Sel","Rab","Kam","Jum","Sab"];
+const ARAH=["U","TL","T","TG","S","BD","B","BL"];
 const r=n=>Math.round(n);
-let lokasi=null;
+const fJam=t=>t.slice(11,13)+".00";
+const fWkt=t=>t.slice(11,16).replace(":",".");
+const hue=t=>Math.round(210-Math.min(Math.max((t-10)/30,0),1)*195);
+const uvCat=u=>u<3?"Rendah":u<6?"Sedang":u<8?"Tinggi":u<11?"Sangat tinggi":"Ekstrem";
+const aqiCat=a=>a<=50?"Baik":a<=100?"Sedang":a<=150?"Tidak sehat bagi kelompok sensitif":a<=200?"Tidak sehat":a<=300?"Sangat tidak sehat":"Berbahaya";
+const SK='<div class="sk" style="width:40%"></div><div class="sk" style="width:60%;height:90px"></div><div class="sk" style="width:90%;height:120px"></div>';
+let lokasi=null,last=null,lastAir=null;
 try{lokasi=JSON.parse(localStorage.getItem("lokasi"))}catch(e){}
+$("#isi").innerHTML=SK;
 
-function hujanFx(){const el=$("#rain");if(el.children.length)return;for(let i=0;i<60;i++){const d=document.createElement("i");d.style.left=Math.random()*100+"%";d.style.animationDuration=(.6+Math.random()*.6)+"s";d.style.animationDelay=(-Math.random()*1.2)+"s";el.appendChild(d)}}
-hujanFx();
+(function(){const el=$("#rain");for(let i=0;i<60;i++){const d=document.createElement("i");d.style.left=Math.random()*100+"%";d.style.animationDuration=(.6+Math.random()*.6)+"s";d.style.animationDelay=(-Math.random()*1.2)+"s";el.appendChild(d)}})();
+addEventListener("scroll",()=>$("#mini").classList.toggle("on",scrollY>170),{passive:true});
 
 async function muat(l){
   lokasi=l;
   try{localStorage.setItem("lokasi",JSON.stringify(l))}catch(e){}
-  $("#isi").innerHTML='<div class="sk" style="width:40%"></div><div class="sk" style="width:70%;height:90px"></div><div class="sk" style="width:90%;height:120px"></div>';
-  const u="https://api.open-meteo.com/v1/forecast?latitude="+l.lat+"&longitude="+l.lon
-   +"&current=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,weather_code,wind_speed_10m,is_day"
-   +"&hourly=temperature_2m,precipitation_probability,weather_code"
-   +"&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum,uv_index_max"
-   +"&timezone=auto&forecast_days=7";
+  $("#isi").innerHTML=SK;
+  const q="latitude="+l.lat+"&longitude="+l.lon;
+  const u="https://api.open-meteo.com/v1/forecast?"+q
+   +"&current=temperature_2m,apparent_temperature,relative_humidity_2m,dew_point_2m,precipitation,weather_code,cloud_cover,pressure_msl,wind_speed_10m,wind_direction_10m,wind_gusts_10m,is_day"
+   +"&hourly=temperature_2m,precipitation_probability,precipitation,weather_code,is_day,uv_index,visibility"
+   +"&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum,uv_index_max,sunrise,sunset"
+   +"&timezone=auto&forecast_days=10";
+  const pa=fetch("https://air-quality-api.open-meteo.com/v1/air-quality?"+q+"&current=us_aqi,pm2_5&timezone=auto").then(x=>x.ok?x.json():null).catch(()=>null);
   try{
     const res=await fetch(u);if(!res.ok)throw 0;
-    tampil(l,await res.json());
+    const d=await res.json();
+    const a=await pa;lastAir=a&&a.current?a.current:null;
+    tampil(l,d,lastAir);
   }catch(e){
     $("#isi").innerHTML='<p class="status">Tidak bisa memuat data. Periksa koneksi internet, lalu coba cari lagi.</p>';
   }
 }
 
-function tampil(l,d){
+function tile(i,label,body){return '<div class="tile"><div class="th">'+ic(i,14)+label+'</div>'+body+'</div>'}
+
+function tampil(l,d,air){
   last=d;
-  const c=d.current,k=w(c.weather_code),mlm=!c.is_day;
+  const c=d.current,H=d.hourly,D=d.daily,k=w(c.weather_code);
   document.body.className=c.is_day?k[2]:(k[2]==="hujan"||k[2]==="badai"?k[2]:"malam");
-  const now=c.time.slice(0,13);
-  let s=d.hourly.time.findIndex(t=>t.slice(0,13)>=now);if(s<0)s=0;
+  let s=H.time.findIndex(t=>t.slice(0,13)>=c.time.slice(0,13));if(s<0)s=0;
+  const e=Math.min(s+24,H.time.length);
+  // ringkasan hujan 24 jam
+  let maxP=0,maxI=s,first=-1,mm=0;
+  for(let i=s;i<e;i++){const p=H.precipitation_probability[i]||0;if(p>maxP){maxP=p;maxI=i}if(first<0&&p>=50)first=i;mm+=H.precipitation[i]||0}
+  let ringkas=k[0]+" saat ini. ";
+  if(first>=0)ringkas+=first===s?"Hujan kemungkinan besar terjadi dalam satu jam ke depan (peluang "+H.precipitation_probability[first]+"%).":"Hujan kemungkinan mulai sekitar "+fJam(H.time[first])+" (peluang "+H.precipitation_probability[first]+"%).";
+  else if(maxP>=20)ringkas+="Peluang hujan tertinggi "+maxP+"% sekitar "+fJam(H.time[maxI])+".";
+  else ringkas+="Tidak ada hujan signifikan dalam 24 jam ke depan (peluang maks "+maxP+"%).";
+  // per jam + matahari terbit/terbenam
+  const EV=[];D.sunrise.forEach(t=>EV.push({t:t,k:"sunrise",n:"Terbit"}));D.sunset.forEach(t=>EV.push({t:t,k:"sunset",n:"Terbenam"}));
   let jam="";
-  for(let i=s;i<s+24&&i<d.hourly.time.length;i++){
-    const p=d.hourly.precipitation_probability[i],h=+d.hourly.time[i].slice(11,13);
-    jam+='<div class="j'+(i===s?' kini':'')+'"><div class="t">'+(i===s?"Kini":d.hourly.time[i].slice(11,13)+".00")+'</div><div class="i">'+wi(d.hourly.weather_code[i],h<6||h>=18,28)+'</div><b>'+r(d.hourly.temperature_2m[i])+'°</b><div class="h">'+(p>=20?ic("drop",11)+p+"%":"")+'</div></div>';
+  for(let i=s;i<e;i++){
+    const p=H.precipitation_probability[i];
+    jam+='<div class="j"><div class="t">'+(i===s?"Kini":fJam(H.time[i]))+'</div><div class="i">'+wi(H.weather_code[i],!H.is_day[i],26)+'</div><div class="h">'+(p>=10?p+"%":"")+'</div><b>'+r(H.temperature_2m[i])+'°</b></div>';
+    EV.forEach(v=>{if(v.t.slice(0,13)===H.time[i].slice(0,13)&&v.t>c.time)jam+='<div class="j"><div class="t">'+fWkt(v.t)+'</div><div class="i">'+ic(v.k,26)+'</div><div class="h"></div><b class="ev">'+v.n+'</b></div>'});
   }
-  const mn=Math.min(...d.daily.temperature_2m_min),mx=Math.max(...d.daily.temperature_2m_max);
+  // 10 hari
+  const mn=Math.min(...D.temperature_2m_min),mx=Math.max(...D.temperature_2m_max),sp=mx-mn||1;
   let hari="";
-  d.daily.time.forEach((t,i)=>{
-    const lo=d.daily.temperature_2m_min[i],hi=d.daily.temperature_2m_max[i];
-    const kiri=(lo-mn)/(mx-mn||1)*100,lebar=Math.max((hi-lo)/(mx-mn||1)*100,8);
-    const p=d.daily.precipitation_probability_max[i];
-    hari+='<div class="hari"><span>'+(i===0?"Hari ini":HARI[new Date(t+"T12:00").getDay()])+'</span><span class="hi-ic">'+wi(d.daily.weather_code[i],false,22)+'</span><span class="p">'+(p>=20?p+"%":"")+'</span><span class="lo">'+r(lo)+'°</span><div class="bar"><i style="left:'+kiri+'%;width:'+lebar+'%"></i></div><span class="hi">'+r(hi)+'°</span></div>';
+  D.time.forEach((t,i)=>{
+    const lo=D.temperature_2m_min[i],hi=D.temperature_2m_max[i],p=D.precipitation_probability_max[i];
+    const kiri=(lo-mn)/sp*100,lebar=Math.max((hi-lo)/sp*100,6);
+    const dot=i===0?'<b style="left:'+Math.min(Math.max((c.temperature_2m-lo)/((hi-lo)||1)*100,0),100)+'%"></b>':"";
+    hari+='<div class="hari"><span class="d">'+(i===0?"Hari ini":HARI[new Date(t+"T12:00").getDay()])+'</span><span class="wc">'+wi(D.weather_code[i],false,22)+'<small>'+(p>=10?p+"%":"")+'</small></span><span class="lo">'+r(lo)+'°</span><div class="bar"><i style="left:'+kiri+'%;width:'+lebar+'%;background:linear-gradient(90deg,hsl('+hue(lo)+' 90% 60%),hsl('+hue(hi)+' 90% 60%))">'+dot+'</i></div><span class="hi">'+r(hi)+'°</span></div>';
   });
-  const tgl=new Date(c.time).toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long"});
-  const uv=r(d.daily.uv_index_max[0]);
+  // tile
+  const uv=H.uv_index[s]||0,vis=(H.visibility[s]||0)/1000,dif=c.apparent_temperature-c.temperature_2m;
+  let nxt,nk;
+  if(c.time<D.sunrise[0]){nxt=D.sunrise[0];nk="sunrise"}else if(c.time<D.sunset[0]){nxt=D.sunset[0];nk="sunset"}else{nxt=D.sunrise[1]||D.sunrise[0];nk="sunrise"}
+  const deg=c.wind_direction_10m,ar=ARAH[Math.round(deg/45)%8];
+  const kompas='<svg viewBox="0 0 60 60" width="62" height="62" aria-hidden="true"><circle cx="30" cy="30" r="27" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"/><text x="30" y="12" text-anchor="middle" font-size="8" fill="#fff">U</text><g transform="rotate('+deg+' 30 30)"><path d="M30 16v30M30 46l-5-7M30 46l5-7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></g></svg>';
+  const aq=air&&air.us_aqi!=null?tile("leaf","Kualitas udara",'<div class="v">'+r(air.us_aqi)+'</div><div class="k">'+aqiCat(air.us_aqi)+'</div><div class="ub"><i style="left:'+Math.min(air.us_aqi/300,1)*100+'%"></i></div><div class="note">PM2.5: '+r(air.pm2_5)+' µg/m³ (AQI AS)</div>'):tile("leaf","Kualitas udara",'<div class="note">Data kualitas udara tidak tersedia untuk lokasi ini.</div>');
+  const tiles='<div class="tiles">'
+   +tile("sun","Indeks UV",'<div class="v">'+r(uv)+'</div><div class="k">'+uvCat(uv)+'</div><div class="ub"><i style="left:'+Math.min(uv/11,1)*100+'%"></i></div><div class="note">Maks hari ini: '+r(D.uv_index_max[0])+'</div>')
+   +tile(nk,nk==="sunset"?"Matahari terbenam":"Matahari terbit",'<div class="v">'+fWkt(nxt)+'</div><div class="note">Terbit '+fWkt(D.sunrise[0])+'<br>Terbenam '+fWkt(D.sunset[0])+'</div>')
+   +tile("wind","Angin",'<div class="wind"><div><div class="v">'+r(c.wind_speed_10m)+'<small>km/j</small></div><div class="k">Dari '+ar+'</div></div>'+kompas+'</div><div class="note">Hembusan hingga '+r(c.wind_gusts_10m)+' km/j</div>')
+   +tile("drizzle","Curah hujan",'<div class="v">'+(Math.round(mm*10)/10)+'<small>mm</small></div><div class="k">24 jam ke depan</div><div class="note">Peluang tertinggi '+maxP+'%. Saat ini '+c.precipitation+' mm.</div>')
+   +tile("thermo","Terasa seperti",'<div class="v">'+r(c.apparent_temperature)+'°</div><div class="note">'+(dif>=2?"Terasa lebih hangat dari suhu sebenarnya.":dif<=-2?"Terasa lebih dingin dari suhu sebenarnya.":"Mirip dengan suhu sebenarnya.")+'</div>')
+   +tile("drop","Kelembapan",'<div class="v">'+c.relative_humidity_2m+'%</div><div class="note">Titik embun saat ini '+r(c.dew_point_2m)+'°.</div>')
+   +tile("eye","Jarak pandang",'<div class="v">'+(Math.round(vis*10)/10)+'<small>km</small></div><div class="note">'+(vis>=10?"Pandangan sangat jelas.":vis>=5?"Pandangan cukup jelas.":vis>=2?"Pandangan agak terbatas.":"Pandangan terbatas, kemungkinan kabut.")+'</div>')
+   +tile("gauge","Tekanan udara",'<div class="v">'+r(c.pressure_msl)+'<small>hPa</small></div><div class="note">Tekanan di permukaan laut.</div>')
+   +tile("cloud","Tutupan awan",'<div class="v">'+r(c.cloud_cover)+'%</div><div class="note">'+(c.cloud_cover<20?"Langit hampir cerah.":c.cloud_cover<60?"Berawan sebagian.":"Langit banyak tertutup awan.")+'</div>')
+   +aq+'</div>';
+  $("#mini").innerHTML=esc(l.nama)+" "+r(c.temperature_2m)+"° · "+k[0];
   $("#isi").innerHTML=
-   '<div class="hero"><div class="kota">'+esc(l.nama)+'</div><div class="tgl">'+tgl+'</div><div class="ikon">'+wi(c.weather_code,mlm,92)+'</div><div class="suhu">'+r(c.temperature_2m)+'<sup>°C</sup></div><div class="kondisi">'+k[0]+'</div><div class="pil"><span>Terasa '+r(c.apparent_temperature)+'°</span><span>'+ic("up",14)+r(d.daily.temperature_2m_max[0])+'°</span><span>'+ic("down",14)+r(d.daily.temperature_2m_min[0])+'°</span></div></div>'
-  +'<section><h2>Per jam, 24 jam ke depan</h2><div class="jam">'+jam+'</div></section>'
-  +'<section><h2>7 hari ke depan</h2>'+hari+'</section>'
-  +'<section><h2>Kondisi saat ini</h2><div class="grid"><div><em>'+ic("drop",22)+'</em><b>'+c.relative_humidity_2m+'%</b><span>Kelembapan</span></div><div><em>'+ic("wind",22)+'</em><b>'+r(c.wind_speed_10m)+' km/j</b><span>Angin</span></div><div><em>'+ic("drizzle",22)+'</em><b>'+c.precipitation+' mm</b><span>Curah hujan</span></div><div><em>'+ic("sun",22)+'</em><b>'+uv+'</b><span>Indeks UV maks hari ini</span></div></div></section>';
+   '<div class="hero"><div class="kota">'+esc(l.nama)+'</div><div class="suhu">'+r(c.temperature_2m)+'<i>°</i></div><div class="kondisi">'+k[0]+'</div><div class="tr">T:'+r(D.temperature_2m_max[0])+'° R:'+r(D.temperature_2m_min[0])+'°</div></div>'
+  +'<div class="card"><div class="ringkas">'+ringkas+'</div><div class="ch" style="display:none"></div><div class="jam">'+jam+'</div></div>'
+  +'<div class="card"><div class="ch">'+ic("cal",14)+'Prakiraan 10 hari</div>'+hari+'</div>'
+  +tiles
+  +'<p class="foot">Data: Open-Meteo, diperbarui '+fWkt(c.time)+'. Persentase adalah peluang hujan menurut model prakiraan, bukan kepastian.</p>';
 }
-function esc(s){return s.replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]))}
+function esc(s){return String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]))}
 
 $("#cari").addEventListener("submit",async e=>{
   e.preventDefault();
@@ -227,9 +277,9 @@ $("#gps").addEventListener("click",()=>{
 document.querySelectorAll("[data-ic]").forEach(e=>{e.innerHTML=ic(e.dataset.ic,+e.dataset.s||20)});
 const dlg=$("#dlg");
 function isiDev(){
-  const b=(a,v)=>"<dt>"+a+"</dt><dd>"+esc(String(v))+"</dd>";
-  let h=b("Versi aplikasi","1.0.0")+b("Sumber data","Open-Meteo");
-  if(lokasi&&last)h+=b("Lokasi",lokasi.nama)+b("Koordinat",(+lokasi.lat).toFixed(3)+", "+(+lokasi.lon).toFixed(3))+b("Zona waktu",last.timezone)+b("Data per",last.current.time.replace("T"," "));
+  const b=(a,v)=>"<dt>"+a+"</dt><dd>"+esc(v)+"</dd>";
+  let h=b("Versi aplikasi","1.1.0")+b("Sumber data","Open-Meteo (model terbaik otomatis)");
+  if(lokasi&&last)h+=b("Lokasi",lokasi.nama)+b("Koordinat",(+lokasi.lat).toFixed(3)+", "+(+lokasi.lon).toFixed(3))+b("Zona waktu",last.timezone)+b("Data per",last.current.time.replace("T"," "))+b("Kualitas udara",lastAir?"Tersedia":"Tidak tersedia");
   else h+=b("Lokasi","Belum ada data");
   $("#info").innerHTML=h;
   $("#json").textContent=last?JSON.stringify(last,null,1).slice(0,4000)+"\n…":"Belum ada data.";
